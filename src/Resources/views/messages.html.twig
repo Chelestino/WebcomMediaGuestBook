@@ -19,26 +19,28 @@
     </head>
     <body>
 
-        {% if pagination %}
-            {% for messages in messageData %}
-                {% if loop.lenght  %}<ul>{% endif %}
-                    <li>{{ messages }}</li>
-                        {% if loop.last %}
-                    </ul>
 
-                {%endif %}
-            {% else %}
-                <p><strong>No results.</strong></p>
-            {% endfor %}
-            {% if pagination.pages %}
-                <ul class="pagination float-group">
-                    {% for page in pagination.pages %}
-                        <li{{ page.is_current ? ' class="active"' : ''}}>
-                            <a href="{{ page.href }}"{% for key,value in page.attributes %} {{ key }}="{{ value }}"{% endfor %}>{{ page.caption }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+        {% for messages in messageData|slice((paginator.currentPage-1)*paginator.itemsPerPage, paginator.itemsPerPage) %}
+            <div class="col-lg-12">{{ messages|e }}</div>
+        {% endfor %}
+        {% if paginator.numPages > 1 %}
+            <ul class="pagination">
+                {% if paginator.prevUrl %}
+                    <li><a href="{{ paginator.prevUrl }}">&laquo; Previous</a></li>
+                    {% endif %}
+
+                {% for page in paginator.pages %}
+                    {% if page.url %}
+                        <li {{ page.isCurrent ? 'class="active"' : '' }}><a href="{{ page.url }}">{{ page.num }}</a></li>
+                        {% else %}
+                        <li class="disabled"><span>{{ page.num }}</span></li>
+                            {% endif %}
+                        {% endfor %}
+
+                {% if paginator.nextUrl %}
+                    <li><a href="{{ paginator.nextUrl }}">Next &raquo;</a></li>
+                    {% endif %}
+            </ul>
         {% endif %}
 
 

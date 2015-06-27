@@ -42,10 +42,12 @@ class MessageController {
         $query = $this->entityManager->createQuery($dql);
         $query->setMaxResults(300);
         $mes = $query->getArrayResult();
+        
         foreach ($mes as $key) {
             $data[] = $key['user'] . ' написал: ' . $key['message'] . ' в ' . $key['added']->format('H:i d.m.Y');
         }
-        return $data;
+        
+        return array_reverse($data);
     }
 
 }

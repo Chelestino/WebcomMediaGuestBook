@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     $baseDir . '/src/Entity/Messages.php',
     $baseDir . '/src/Controller/MessageController.php',
-    $baseDir . '/src/Controller/PaginationController.php',
     $vendorDir . '/twig/twig/lib/Twig/Autoloader.php',
     $vendorDir . '/securimage/securimage.php',
 );
