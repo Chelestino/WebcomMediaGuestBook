@@ -1,0 +1,17 @@
+{
+    "require": {
+        "doctrine/orm": "*",
+        "twbs/bootstrap": "*",
+        "twig/twig":"~1.0",
+        "verot/class.upload.php": "dev-master"
+    },
+    "autoload": {
+        "files": ["src/Entity/Messages.php",
+            "src/Controller/MessageController.php",
+            "src/Controller/PaginationController.php",
+            "vendor/twig/twig/lib/Twig/Autoloader.php",
+            "vendor/securimage/securimage.php"
+        ]
+
+    }
+}

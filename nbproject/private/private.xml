@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/usr/share/nginx/html/WebcomMediaGuestBook/src/Entity/Messages.php</file>
+            <file>file:/usr/share/nginx/html/WebcomMediaGuestBook/bootstrap.php</file>
+            <file>file:/usr/share/nginx/html/WebcomMediaGuestBook/src/ShowMessage.php</file>
+            <file>file:/usr/share/nginx/html/WebcomMediaGuestBook/cli-config.php</file>
+            <file>file:/usr/share/nginx/html/WebcomMediaGuestBook/composer.json</file>
+            <file>file:/usr/share/nginx/html/WebcomMediaGuestBook/index.php</file>
+            <file>file:/usr/share/nginx/html/WebcomMediaGuestBook/src/Controller/MessageController.php</file>
+            <file>file:/usr/share/nginx/html/WebcomMediaGuestBook/src/Create_message.php</file>
+        </group>
+    </open-files>
+</project-private>
