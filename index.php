@@ -1,21 +1,21 @@
 <?php
 
 use JasonGrimes\Paginator;
-use WebcomMediaGuestBook\Controller\MessageController;
 
 require_once "bootstrap.php";
 
-$message = new MessageController($entityManager);
-$allMessages=$message->ShowAllMessages();
+
+$allMessages = $message->ShowAllMessages();
+
 $totalItems = count($allMessages);
 $itemsPerPage = 5;
-$currentPage = isset($_GET['page'])?$_GET['page']:1;
-$urlPattern = '/index.php?page=(:num)';
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+$urlPattern = '/WebcomMediaGuestBook/index.php?page=(:num)';
 $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
 $template = $twig->loadTemplate('messages.html.twig');
-echo $template->render(array('messageData'=>$allMessages, 'paginator'=>$paginator));
-$template= $twig->display('form.html.twig');
+echo $template->render(array('messageData' => $allMessages, 'paginator' => $paginator));
+$template = $twig->display('form.html.twig');
 
 if (!empty($_POST)) {
     $captcha = new Securimage();
