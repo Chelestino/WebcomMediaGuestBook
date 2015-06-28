@@ -4,13 +4,13 @@ use JasonGrimes\Paginator;
 
 require_once "bootstrap.php";
 
-
 $allMessages = $message->ShowAllMessages();
 
 $totalItems = count($allMessages);
 $itemsPerPage = 5;
-$currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-$urlPattern = '/WebcomMediaGuestBook/index.php?page=(:num)';
+$pageNumber = explode('/', $_SERVER['PATH_INFO']);
+$currentPage = $pageNumber[2];
+$urlPattern = '/WebcomMediaGuestBook/index.php/page/(:num)';
 $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
 $template = $twig->loadTemplate('messages.html.twig');

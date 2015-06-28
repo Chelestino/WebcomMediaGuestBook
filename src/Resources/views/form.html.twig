@@ -2,7 +2,7 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="http://localhost/WebcomMediaGuestBook/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 <form role="form" action="index.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <input name="name" type="text"  class="form-control" placeholder="Имя"/>
@@ -14,8 +14,8 @@
     <p class="help-block">Введите сообщение.</p>
 </div>
 <input type="file" size="32" name="image_field" class="input-group" style="margin-bottom: 30px;">
-<img id="captcha" src="vendor/securimage/securimage_show.php" alt="CAPTCHA Image" />
-<a href="#" onclick="document.getElementById('captcha').src = 'vendor/securimage/securimage_show.php?' + Math.random();
+<img id="captcha" src="http://localhost/WebcomMediaGuestBook/vendor/securimage/securimage_show.php" alt="CAPTCHA Image" />
+<a href="#" onclick="document.getElementById('captcha').src = 'http://localhost/WebcomMediaGuestBook/vendor/securimage/securimage_show.php?' + Math.random();
         return false" class="btn btn-info btn-sm">Другая картинка.</a>
 <div class="form-group" style="margin-top: 10px;">
     <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="Введите код изображенный на картинке." />
