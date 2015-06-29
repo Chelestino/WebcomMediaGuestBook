@@ -8,7 +8,7 @@
         <title>WebcomMedia</title>
 
         <!-- Bootstrap -->
-        <link href="http://localhost/WebcomMediaGuestBook/vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ absolutePath }}vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,14 +19,14 @@
     </head>
     <body>
 
-
+        {# перебираем в цикле массив сообщений и выводим пагинацию #}
         {% for messages in messageData|slice((paginator.currentPage-1)*paginator.itemsPerPage, paginator.itemsPerPage) %}
-            <div class="col-lg-12">{{ messages|e }}</div>
+            <div id="messageBlock" class="col-lg-12">{{ messages|e }}</div>
         {% endfor %}
         {% if paginator.numPages > 1 %}
             <ul class="pagination">
                 {% if paginator.prevUrl %}
-                    <li><a href="{{ paginator.prevUrl }}">&laquo; Previous</a></li>
+                    <li><a href="{{ paginator.prevUrl }}">&laquo; Назад</a></li>
                     {% endif %}
 
                 {% for page in paginator.pages %}
@@ -38,7 +38,7 @@
                         {% endfor %}
 
                 {% if paginator.nextUrl %}
-                    <li><a href="{{ paginator.nextUrl }}">Next &raquo;</a></li>
+                    <li><a href="{{ paginator.nextUrl }}">Вперед &raquo;</a></li>
                     {% endif %}
             </ul>
         {% endif %}

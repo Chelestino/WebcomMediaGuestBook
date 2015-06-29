@@ -3,7 +3,6 @@
         "doctrine/orm": "*",
         "twbs/bootstrap": "*",
         "twig/twig": "~1.0",
-        "verot/class.upload.php": "dev-master",
         "jasongrimes/paginator": "~1.0"
     },
     "autoload": {

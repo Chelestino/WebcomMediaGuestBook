@@ -2,20 +2,21 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://localhost/WebcomMediaGuestBook/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-<form role="form" action="index.php" method="post" enctype="multipart/form-data">
+<script src="{{ absolutePath }}vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ absolutePath }}vendor/twbs/bootstrap/dist/js/ajax.js"></script>
+<form role="form" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <input name="name" type="text"  class="form-control" placeholder="Имя"/>
+        <input id="name" name="name" type="text"  class="form-control" placeholder="Имя"/>
         <span class="help-block" style="display: none;">Введите Ваше имя.</span>
     </div>
 </div>
 <div class="form-group">
-    <textarea name="comment" class="form-control" placeholder="Сообщение"></textarea>
+    <textarea id="comment" name="comment" class="form-control" placeholder="Сообщение"></textarea>
     <p class="help-block">Введите сообщение.</p>
 </div>
 <input type="file" size="32" name="image_field" class="input-group" style="margin-bottom: 30px;">
-<img id="captcha" src="http://localhost/WebcomMediaGuestBook/vendor/securimage/securimage_show.php" alt="CAPTCHA Image" />
-<a href="#" onclick="document.getElementById('captcha').src = 'http://localhost/WebcomMediaGuestBook/vendor/securimage/securimage_show.php?' + Math.random();
+<img id="captcha" src="{{ absolutePath }}vendor/securimage/securimage_show.php" alt="CAPTCHA Image" />
+<a href="#" onclick="document.getElementById('captcha').src = '{{ absolutePath }}vendor/securimage/securimage_show.php?' + Math.random();
         return false" class="btn btn-info btn-sm">Другая картинка.</a>
 <div class="form-group" style="margin-top: 10px;">
     <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="Введите код изображенный на картинке." />
@@ -23,7 +24,7 @@
 </div>
 <span class="help-block" style="display: none;">Введите секретный код.</span>
 <div class="col-xs-8">
-    <input type="submit" class="btn btn-info" value="Отправить" />
+    <input id="submit" type="submit" class="btn btn-info" value="Отправить" onClick="showNewMessage();" />
 </div>
 </form>
 </body>

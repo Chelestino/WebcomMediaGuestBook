@@ -1,4 +1,0 @@
-suites:
-    paginator_suite:
-        namespace: Anh\Paginator
-        psr4_prefix: Anh\Paginator

@@ -14,29 +14,15 @@ class MessageController {
         $this->entityManager = $entityManager;
     }
 
-    public function AddPhotoToMessage($photo) {
-        $handle = new upload($photo);
-        if ($handle->uploaded) {
-            $handle->image_resize = true;
-            $handle->image_convert = gif;
-            $handle->image_x = 100;
-            $handle->image_ratio_y = true;
-            $handle->Process('web/images/');
-            if ($handle->processed) {
-                return $handle->file_dst_pathname;
-            } else {
-                echo 'error : ' . $handle->error;
-            }
-        }
-    }
-
-    public function AddNewMessage($user, $userMessage, $photo = null) {
+    // записывает новое сообщение в БД
+    public function AddNewMessage($user, $userMessage) {
         $this->message->setMessage($userMessage);
         $this->message->setUser($user);
         $this->entityManager->persist($this->message);
         $this->entityManager->flush();
     }
 
+    //возвращает реверс массива сообщений 
     public function ShowAllMessages() {
         $dql = "SELECT m.user, m.message, m.added FROM Messages m ORDER BY m.added";
         $query = $this->entityManager->createQuery($dql);
